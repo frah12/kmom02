@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	# Must use RewriteBase on www.student.bth.se RewriteBase for url /~mos/test is /~mos/test/
+	RewriteBase /~frah12/phpmvc/me/kmom02/
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule (.*) index.php/$1 [NC,L]
+</IfModule>
+	# Added this myself
+	AddType x-mapp-php5 .php
+	AddHandler application/x-httpd-php5 .php
+	SetEnv PHP_VER
+
+#<IfModule mod_setenvif.c>
+# <IfModule mod_headers.c>
+#    BrowserMatch MSIE ie
+#    Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
+#  </IfModule>
+#</IfModule>
